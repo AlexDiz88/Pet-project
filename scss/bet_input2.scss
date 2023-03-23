@@ -1,0 +1,136 @@
+// переменные
+$maincolor: rgb(33, 44, 82);
+$sidecolor: rgb(218, 218, 218);
+$extracolor: rgb(30, 25, 54);
+
+body {
+  top: 80px;
+  background-color: rgb(212, 200, 183);
+}
+
+.wrapper {
+  padding: 70px 5px 0 5px;
+}
+
+select {
+  padding: 3px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: $maincolor;
+  border: 2px solid $maincolor;
+  border-radius: 3px;
+  width: 250px;
+  height: 50px;
+  margin: 10px 0;
+}
+
+.dropdown__button {
+  position: relative;
+  display: block;
+  width: 250px;
+  text-align: left;
+  background: whitesmoke;
+  color: $maincolor;
+  border: 2px solid $maincolor;
+  border-radius: 5px;
+  height: 50px;
+  padding: 10px 25px 10px 10px;
+
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+
+    //рисуем треугольник
+    width: 0;
+    height: 0;
+    border-width: 10.4px 6px 0 6px;
+    border-color: $maincolor transparent transparent transparent;
+    border-style: solid;
+
+    //снимаем клик с треугольника
+    pointer-events: none;
+  }
+}
+
+.dropdown-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+.dropdown {
+  &__button {
+    &:focus,
+    &--active {
+      outline: none;
+      box-shadow: 0 0px 0 3px rgba($color: rgb(26, 26, 26), $alpha: 0.4);
+    }
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    margin: 5px 0 0 0;
+    padding: 0;
+
+    background-color: whitesmoke;
+    box-shadow: 0 4px 8px $maincolor;
+    overflow: hidden;
+
+    border-radius: 5px;
+    width: 250px;
+    z-index: 1;
+    &--visible {
+      display: block;
+    }
+  }
+
+  &__list-item {
+    margin: 0;
+    padding: 0;
+    height: 45px;
+    border: 1px solid black;
+    border-bottom: none;
+    color: $maincolor;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+
+    &:first-child {
+      border-radius: 3px 3px 0 0;
+    }
+    &:last-child {
+      border-radius: 0 0 6px 6px;
+      border-bottom: 1px solid #000;
+    }
+    &:hover {
+      background-color: rgb(255, 217, 147);
+    }
+
+    // картинка перед элементом списка
+    //  &::before {
+    //    content: "";
+    //    background: url(../source/img/logo.png) no-repeat;
+    //    background-size: contain;
+    //    height: 40px;
+    //    width: 40px;
+    //    margin: -13px 5px 0 -10px;
+    //  }
+    //  &:nth-child(1)::before {
+    //    background: url(../source/img/arrow_down.png) no-repeat;
+    //    background-size: contain;
+    //  }
+  }
+  &__input-hidden {
+    display: none;
+  }
+}

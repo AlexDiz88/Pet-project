@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Внос ставок</title>
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/bet_input2.css" />
+  </head>
+  <body>
+<div id="header-wrapper">
+  <div class="max-content">
+    <div id="main-nav">
+      <div class="nav-btn">
+        <a href="/">
+          <img class="logo-s" src="/source/img/logo.png" alt="logo" />
+        </a>
+      </div>
+      <div class="nav-btn">
+        <a id="currentbets-menuitem" href="google_import.html">Ставки</a>
+      </div>
+      <div class="nav-btn">
+        <a id="standings-menuitem" href="bet_input.html">Таблица</a>
+      </div>
+
+      <div id="dropdown-nav" class="nav-btn">
+        <span id="dropdown-icon">
+          <span></span>
+        </span>
+        <div id="dropdown-nav-menu">
+          <div>
+            <a id="results-menuitem" href="bet_input2.html">Результаты</a>
+          </div>
+          <div class="nav-btn">
+            <a id="statistics-menuitem" href="#">Статистика</a>
+          </div>
+          <div class="nav-btn">
+            <a id="other-menuitem" href="#">Прочее</a>
+          </div>
+          <div class="nav-btn">
+            <a id="archive-menuitem" href="#">Архив</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="wrapper">
+      <div class="person">
+        <div class="dropdown-container">
+          <button class="dropdown__button" value="null_person">
+            Выбрать участника
+          </button>
+          <ul id="person-list" class="dropdown__list">
+            <li class="dropdown__list-item" data-value="Alex">Alex</li>
+            <li class="dropdown__list-item" data-value="Ihor">Ihor</li>
+            <li class="dropdown__list-item" data-value="Lёxa">Lёxa</li>
+            <li class="dropdown__list-item" data-value="Max">Max</li>
+            <li class="dropdown__list-item" data-value="Serj">Serj</li>
+            <li class="dropdown__list-item" data-value="Vater">Vater</li>
+          </ul>
+          <input
+            type="text"
+            name="selected-person"
+            value=""
+            class="dropdown__input-hidden"
+          />
+        </div>
+      </div>
+
+      <div class="tournament">
+        <div class="dropdown-container">
+          <button id="tournament-dropdown" class="dropdown__button">
+            Выбрать турнир
+          </button>
+          <ul id="tournament-list" class="dropdown__list">
+            <li id="EPL" class="dropdown__list-item" data-value="EPL">АПЛ</li>
+            <li id="BL" class="dropdown__list-item" data-value="BL">
+              Бундеслига
+            </li>
+            <li id="CL" class="dropdown__list-item" data-value="CL">
+              Лига Чемпионов
+            </li>
+            <li id="LE" class="dropdown__list-item" data-value="LE">
+              Лига Европы
+            </li>
+          </ul>
+          <input
+            type="text"
+            name="selected-tournament"
+            value=""
+            class="dropdown__input-hidden"
+          />
+        </div>
+      </div>
+
+      <div class="teams dropdown-container" id="team-dropdown-container">
+        <input
+          type="text"
+          name="selected-tournament"
+          value=""
+          class="dropdown__input-hidden"
+        />
+      </div>
+
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div class="test">Сделать кардиган для всех + Популярные</div>
+      <div class="bet">Подумать как реализовать ввод счёта</div>
+      <div class="bet">Кэф</div>
+      <div class="bet">Кнопка "добавить ставку"</div>
+    </div>
+<script defer src="./js/jquery-3.6.4.js"></script>    <script src="js/menu.js"></script>
+    <script src="js/bet_input2.js"></script>
+  </body>
+</html>

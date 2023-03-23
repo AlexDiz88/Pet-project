@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Внос ставок</title>
+	<link rel="stylesheet" href="css/menu.css" />
+	<link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.css" />
+	<link rel="stylesheet" href="css/bet_input.css" />
+<script defer src="./js/jquery-3.6.4.js"></script>	<script defer src="jquery-ui-1.13.2/jquery-ui.min.js"></script>
+	<script defer src="js/menu.js"></script>
+	<script defer src="js/bet_input.js"></script>
+</head>
+
+<body>
+<div id="header-wrapper">
+  <div class="max-content">
+    <div id="main-nav">
+      <div class="nav-btn">
+        <a href="/">
+          <img class="logo-s" src="/source/img/logo.png" alt="logo" />
+        </a>
+      </div>
+      <div class="nav-btn">
+        <a id="currentbets-menuitem" href="google_import.html">Ставки</a>
+      </div>
+      <div class="nav-btn">
+        <a id="standings-menuitem" href="bet_input.html">Таблица</a>
+      </div>
+
+      <div id="dropdown-nav" class="nav-btn">
+        <span id="dropdown-icon">
+          <span></span>
+        </span>
+        <div id="dropdown-nav-menu">
+          <div>
+            <a id="results-menuitem" href="bet_input2.html">Результаты</a>
+          </div>
+          <div class="nav-btn">
+            <a id="statistics-menuitem" href="#">Статистика</a>
+          </div>
+          <div class="nav-btn">
+            <a id="other-menuitem" href="#">Прочее</a>
+          </div>
+          <div class="nav-btn">
+            <a id="archive-menuitem" href="#">Архив</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="wrapper">
+		<div class="select-wrapper person-wrapper">
+			<select name="person-dropdown" id="person">
+				<option>Выбрать участника</option>
+				<option>Alex</option>
+				<option>Ihor</option>
+				<option>Lёxa</option>
+				<option>Max</option>
+				<option>Serj</option>
+				<option>Vater</option>
+			</select>
+		</div>
+		<div class="select-wrapper tournament-wrapper">
+			<select name="tournament-dropdown" id="tournament">
+				<option>Выбрать турнир</option>
+				<option>АПЛ</option>
+				<option>Бундеслига</option>
+				<option>Лига Чемпионов</option>
+				<option>Лига Европы</option>
+			</select>
+			<input name="tel" placeholder="Тур" id="tour-spinner">
+		</div>
+		<div class="radio-wrapper" id="bet-existence">
+			<input checked type="radio" name="betexist" id="exist-bet" />
+			<label for="exist-bet">Есть ставка</label>
+			<input type="radio" name="betexist" id="blank-bet" />
+			<label for="blank-bet">Нет ставки</label>
+		</div>
+
+		<!-- АПЛ -->
+		<div class="select-wrapper team-wrapper" id="epl-team-wrapper">
+			<select name="team1-dropdown" id="team1">
+				<option>Хозяева</option>
+				<option>Арсенал</option>
+				<option>Лидс</option>
+				<option>Астон Вилла</option>
+				<option>Ман.Сити</option>
+				<option>Борнмут</option>
+				<option>МЮ</option>
+				<option>Брайтон</option>
+				<option>Ноттингем</option>
+				<option>Брентфорд</option>
+				<option>Ньюкасл</option>
+				<option>Вест Хэм</option>
+				<option>Саутгемптон</option>
+				<option>Вулверхэмптон</option>
+				<option>Тоттенхэм</option>
+				<option>Кристал Пэлас</option>
+				<option>Фулхэм</option>
+				<option>Лестер</option>
+				<option>Челси</option>
+				<option>Ливерпуль</option>
+				<option>Эвертон</option>
+			</select>
+			<select name="team2-dropdown" id="team2">
+				<option>Гости</option>
+				<option>Арсенал</option>
+				<option>Лидс</option>
+				<option>Астон Вилла</option>
+				<option>Ман.Сити</option>
+				<option>Борнмут</option>
+				<option>МЮ</option>
+				<option>Брайтон</option>
+				<option>Ноттингем</option>
+				<option>Брентфорд</option>
+				<option>Ньюкасл</option>
+				<option>Вест Хэм</option>
+				<option>Саутгемптон</option>
+				<option>Вулверхэмптон</option>
+				<option>Тоттенхэм</option>
+				<option>Кристал Пэлас</option>
+				<option>Фулхэм</option>
+				<option>Лестер</option>
+				<option>Челси</option>
+				<option>Ливерпуль</option>
+				<option>Эвертон</option>
+			</select>
+		</div>
+
+		<!-- Бундеслига -->
+		<div class="select-wrapper team-wrapper" id="bl-team-wrapper">
+			<select name="team3-dropdown" id="team3">
+				<option>Хозяева</option>
+				<option>Айнтрахт</option>
+				<option>Герта</option>
+				<option>Аугсбург</option>
+				<option>Кельн</option>
+				<option>Бавария</option>
+				<option>Майнц</option>
+				<option>Байер</option>
+				<option>РБ Лейпциг</option>
+				<option>Боруссия Д</option>
+				<option>Унион</option>
+				<option>Боруссия М</option>
+				<option>Фрайбург</option>
+				<option>Бохум</option>
+				<option>Хоффенхайм</option>
+				<option>Вердер</option>
+				<option>Шальке</option>
+				<option>Вольфсбург</option>
+				<option>Штутгарт</option>
+			</select>
+			<select name="team4-dropdown" id="team4">
+				<option>Гости</option>
+				<option>Айнтрахт</option>
+				<option>Герта</option>
+				<option>Аугсбург</option>
+				<option>Кельн</option>
+				<option>Бавария</option>
+				<option>Майнц</option>
+				<option>Байер</option>
+				<option>РБ Лейпциг</option>
+				<option>Боруссия Д</option>
+				<option>Унион</option>
+				<option>Боруссия М</option>
+				<option>Фрайбург</option>
+				<option>Бохум</option>
+				<option>Хоффенхайм</option>
+				<option>Вердер</option>
+				<option>Шальке</option>
+				<option>Вольфсбург</option>
+				<option>Штутгарт</option>
+			</select>
+		</div>
+
+		<!-- autocomplete  -->
+		<!-- Лига Чемпионов -->
+		<div class="team-wrapper" id="cl-team-wrapper">
+			<div class="cl-teams-home-wrapper">
+				<img id="cl-teams-home-icon" src="./source/img/blank_img.png" class="ui-state-default" alt="">
+				<input placeholder="Хозяева" id="cl-teams-home">
+				<input type="hidden" id="cl-teams-home-id">
+			</div>
+			<div class="cl-teams-away-wrapper">
+				<img id="cl-teams-away-icon" src="./source/img/blank_img.png" class="ui-state-default" alt="">
+				<input placeholder="Гости" id="cl-teams-away">
+				<input type="hidden" id="cl-teams-away-id">
+			</div>
+		</div>
+		<!-- Лига Европы -->
+		<div class="team-wrapper" id="le-team-wrapper">
+			<div class="le-teams-home-wrapper">
+				<img id="le-teams-home-icon" src="./source/img/blank_img.png" class="ui-state-default" alt="">
+				<input placeholder="Хозяева" id="le-teams-home">
+				<input type="hidden" id="le-teams-home-id">
+			</div>
+			<div class="le-teams-away-wrapper">
+				<img id="le-teams-away-icon" src="./source/img/blank_img.png" class="ui-state-default" alt="">
+				<input placeholder="Гости" id="le-teams-away">
+				<input type="hidden" id="le-teams-away-id">
+			</div>
+		</div>
+
+		<!-- Виды ставок -->
+		<div class="bets-wrapper" id="bet-types-wrapper">
+			<div id="bet-types">
+				<h3>Популярные</h3>
+				<div>
+					<div id="popular-bets">
+						<button>П1</button>
+						<button>Х</button>
+						<button>П2</button>
+						<button>ТМ 2,5</button>
+						<button>ТБ 2,5</button>
+						<br>
+						<button>П1 + ТБ 2,5</button>
+						<button>П1 + ТМ 3,5</button>
+						<button>П1 + ТМ 4,5</button>
+						<button>П2 + ТБ 2,5</button>
+						<button>П2 + ТМ 3,5</button>
+						<button>П2 + ТМ 4,5</button>
+					</div>
+				</div>
+
+				<h3>Результат матча + Тотал</h3>
+				<div class="inner-accordion-content" id="gameresult-goals-amount-wrapper">
+					<div>
+						<div id="gameresult-goals-amount">
+							<h3>Результат матча</h3>
+							<div>
+								<div id="gameresult">
+									<button>П1</button>
+									<button>Х</button>
+									<button>П2</button>
+									<button>1Х</button>
+									<button>12</button>
+									<button>Х2</button>
+								</div>
+							</div>
+							<h3>П1 + ТМ</h3>
+							<div>
+								<div id="homewin-goals-total-less">
+									<button>П1 + ТМ 1,5</button>
+									<button>П1 + ТМ 2</button>
+									<button>П1 + ТМ 2,5</button>
+									<button>П1 + ТМ 3</button>
+									<button>П1 + ТМ 3,5</button>
+									<button>П1 + ТМ 4</button>
+									<button>П1 + ТМ 4,5</button>
+									<button>П1 + ТМ 5</button>
+									<button>П1 + ТМ 5,5</button>
+								</div>
+							</div>
+							<h3>П1 + ТБ</h3>
+							<div>
+								<div id="homewin-goals-total-more">
+									<button>П1 + ТБ 1,5</button>
+									<button>П1 + ТБ 2</button>
+									<button>П1 + ТБ 2,5</button>
+									<button>П1 + ТБ 3</button>
+									<button>П1 + ТБ 3,5</button>
+									<button>П1 + ТБ 4</button>
+									<button>П1 + ТБ 4,5</button>
+									<button>П1 + ТБ 5</button>
+									<button>П1 + ТБ 5,5</button>
+								</div>
+							</div>
+							<h3>1Х + ТМ</h3>
+							<div>
+								<div id="homewin-goals-total-less">
+									<button>1Х + ТМ 1,5</button>
+									<button>1Х + ТМ 2</button>
+									<button>1Х + ТМ 2,5</button>
+									<button>1Х + ТМ 3</button>
+									<button>1Х + ТМ 3,5</button>
+									<button>1Х + ТМ 4</button>
+									<button>1Х + ТМ 4,5</button>
+									<button>1Х + ТМ 5</button>
+									<button>1Х + ТМ 5,5</button>
+								</div>
+							</div>
+							<h3>1Х + ТБ</h3>
+							<div>
+								<div id="homewin-goals-total-more">
+									<button>1Х + ТБ 1,5</button>
+									<button>1Х + ТБ 2</button>
+									<button>1Х + ТБ 2,5</button>
+									<button>1Х + ТБ 3</button>
+									<button>1Х + ТБ 3,5</button>
+									<button>1Х + ТБ 4</button>
+									<button>1Х + ТБ 4,5</button>
+									<button>1Х + ТБ 5</button>
+									<button>1Х + ТБ 5,5</button>
+								</div>
+							</div>
+							<h3>Ничья + Тотал голов</h3>
+							<div>
+								<div id="draw-goals-amount">
+									<button>Х + <br> ТМ 2,5</button>
+									<button>Х + <br> ТМ 3,5</button>
+									<button>Х + <br> ТМ 4,5</button>
+									<button>Х + <br> ТМ 5,5</button>
+									<button>Х + <br> ТБ 1,5</button>
+									<button>Х + <br> ТБ 2,5</button>
+									<button>Х + <br> ТБ 3,5</button>
+								</div>
+							</div>
+							<h3>П2 + ТМ</h3>
+							<div>
+								<div id="awaywin-goals-total-less">
+									<button>П2 + ТМ 1,5</button>
+									<button>П2 + ТМ 2</button>
+									<button>П2 + ТМ 2,5</button>
+									<button>П2 + ТМ 3</button>
+									<button>П2 + ТМ 3,5</button>
+									<button>П2 + ТМ 4</button>
+									<button>П2 + ТМ 4,5</button>
+									<button>П2 + ТМ 5</button>
+									<button>П2 + ТМ 5,5</button>
+								</div>
+							</div>
+							<h3>П2 + ТБ</h3>
+							<div>
+								<div id="awaywin-goals-total-more">
+									<button>П2 + ТБ 1,5</button>
+									<button>П2 + ТБ 2</button>
+									<button>П2 + ТБ 2,5</button>
+									<button>П2 + ТБ 3</button>
+									<button>П2 + ТБ 3,5</button>
+									<button>П2 + ТБ 4</button>
+									<button>П2 + ТБ 4,5</button>
+									<button>П2 + ТБ 5</button>
+									<button>П2 + ТБ 5,5</button>
+								</div>
+							</div>
+							<h3>Х2 + ТМ</h3>
+							<div>
+								<div id="awaywin-goals-total-less">
+									<button>Х2 + ТМ 1,5</button>
+									<button>Х2 + ТМ 2</button>
+									<button>Х2 + ТМ 2,5</button>
+									<button>Х2 + ТМ 3</button>
+									<button>Х2 + ТМ 3,5</button>
+									<button>Х2 + ТМ 4</button>
+									<button>Х2 + ТМ 4,5</button>
+									<button>Х2 + ТМ 5</button>
+									<button>Х2 + ТМ 5,5</button>
+								</div>
+							</div>
+							<h3>Х2 + ТБ</h3>
+							<div>
+								<div id="awaywin-goals-total-more">
+									<button>Х2 + ТБ 1,5</button>
+									<button>Х2 + ТБ 2</button>
+									<button>Х2 + ТБ 2,5</button>
+									<button>Х2 + ТБ 3</button>
+									<button>Х2 + ТБ 3,5</button>
+									<button>Х2 + ТБ 4</button>
+									<button>Х2 + ТБ 4,5</button>
+									<button>Х2 + ТБ 5</button>
+									<button>Х2 + ТБ 5,5</button>
+								</div>
+							</div>
+							<h3>12 + Тотал голов</h3>
+							<div>
+								<div id="draw-goals-amount">
+									<button>12 + <br> ТМ 2,5</button>
+									<button>12 + <br> ТМ 3,5</button>
+									<button>12 + <br> ТМ 4,5</button>
+									<button>12 + <br> ТМ 5,5</button>
+									<button>12 + <br> ТБ 1,5</button>
+									<button>12 + <br> ТБ 2,5</button>
+									<button>12 + <br> ТБ 3,5</button>
+									<button>12 + <br> ТБ 4,5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h3>Тоталы</h3>
+				<div class="inner-accordion-content" id="goals-amount-wrapper">
+					<div>
+						<div id="goals-amount">
+							<h3>Тотал голов</h3>
+							<div>
+								<div id="goals-amount-game">
+									<button>ТМ 1,5</button>
+									<button>ТМ 2</button>
+									<button>ТМ 2,5</button>
+									<button>ТМ 3</button>
+									<button>ТМ 3,5</button>
+									<button>ТМ 4</button>
+									<button>ТМ 4,5</button>
+									<button>ТМ 5</button>
+									<button>ТМ 5,5</button>
+									<button>ТМ 6</button>
+
+									<button>ТБ 1,5</button>
+									<button>ТБ 2</button>
+									<button>ТБ 2,5</button>
+									<button>ТБ 3</button>
+									<button>ТБ 3,5</button>
+									<button>ТБ 4</button>
+									<button>ТБ 4,5</button>
+									<button>ТБ 5</button>
+									<button>ТБ 5,5</button>
+									<button>ТБ 6</button>
+								</div>
+							</div>
+							<h3>Индивидуальный тотал (Хозяева)</h3>
+							<div>
+								<div id="goals-amount-home">
+									<button>Хозяева<br>ИТМ 1,5</button>
+									<button>Хозяева<br>ИТМ 2</button>
+									<button>Хозяева<br>ИТМ 2,5</button>
+									<button>Хозяева<br>ИТМ 3</button>
+									<button>Хозяева<br>ИТМ 3,5</button>
+									<button>Хозяева<br>ИТМ 4</button>
+									<button>Хозяева<br>ИТМ 4,5</button>
+									<br>
+									<button>Хозяева<br>ИТБ 1,5</button>
+									<button>Хозяева<br>ИТБ 2</button>
+									<button>Хозяева<br>ИТБ 2,5</button>
+									<button>Хозяева<br>ИТБ 3</button>
+									<button>Хозяева<br>ИТБ 3,5</button>
+									<button>Хозяева<br>ИТБ 4</button>
+									<button>Хозяева<br>ИТБ 4,5</button>
+								</div>
+							</div>
+							<h3>Индивидуальный тотал (Гости)</h3>
+							<div>
+								<div id="goals-amount-away">
+									<button>Гости<br>ИТМ 1,5</button>
+									<button>Гости<br>ИТМ 2</button>
+									<button>Гости<br>ИТМ 2,5</button>
+									<button>Гости<br>ИТМ 3</button>
+									<button>Гости<br>ИТМ 3,5</button>
+									<button>Гости<br>ИТМ 4</button>
+									<button>Гости<br>ИТМ 4,5</button>
+									<br>
+									<button>Гости<br>ИТБ 1,5</button>
+									<button>Гости<br>ИТБ 2</button>
+									<button>Гости<br>ИТБ 2,5</button>
+									<button>Гости<br>ИТБ 3</button>
+									<button>Гости<br>ИТБ 3,5</button>
+									<button>Гости<br>ИТБ 4</button>
+									<button>Гости<br>ИТБ 4,5</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<h3>Форы</h3>
+				<div>
+					<div id="handicap">
+						<button>Ф1(0)</button>
+						<button>Ф1(-1)</button>
+						<button>Ф1(+1)</button>
+						<button>Ф1(-1.5)</button>
+						<button>Ф1(+1.5)</button>
+						<button>Ф1(-2)</button>
+						<button>Ф1(+2)</button>
+						<button>Ф1(-2.5)</button>
+						<button>Ф1(+2.5)</button>
+						<button>Ф1(-3)</button>
+						<button>Ф1(+3)</button>
+						<button>Ф1(-3.5)</button>
+						<button>Ф1(+3.5)</button>
+						<button>Ф1(-4.5)</button>
+						<button>Ф1(+4.5)</button>
+						<br>
+						<button>Ф2(0)</button>
+						<button>Ф2(-1)</button>
+						<button>Ф2(+1)</button>
+						<button>Ф2(-1.5)</button>
+						<button>Ф2(+1.5)</button>
+						<button>Ф2(-2)</button>
+						<button>Ф2(+2)</button>
+						<button>Ф2(-2.5)</button>
+						<button>Ф2(+2.5)</button>
+						<button>Ф2(-3)</button>
+						<button>Ф2(+3)</button>
+						<button>Ф2(-3.5)</button>
+						<button>Ф2(+3.5)</button>
+						<button>Ф2(-4.5)</button>
+						<button>Ф2(+4.5)</button>
+					</div>
+				</div>
+
+				<h3>Счёт матча</h3>
+				<div class="inner-accordion-content" id="gamescore-wrapper">
+					<div>
+						<div id="gamescore">
+							<h3>Нормальный счёт матча</h3>
+							<div>
+								<div id="gamescore-normal">
+									<button>0:0</button>
+									<button>1:0</button>
+									<button>2:0</button>
+									<button>3:0</button>
+									<button>0:1</button>
+									<button>1:1</button>
+									<button>2:1</button>
+									<button>3:1</button>
+									<button>0:2</button>
+									<button>1:2</button>
+									<button>2:2</button>
+									<button>3:2</button>
+									<button>0:3</button>
+									<button>1:3</button>
+									<button>2:3</button>
+									<button>3:3</button>
+								</div>
+							</div>
+							<h3>Крупный счёт матча</h3>
+							<div>
+								<div id="gamescore-unnormal">
+									<button>0:4</button>
+									<button>4:0</button>
+									<button>0:5</button>
+									<button>5:0</button>
+									<button>1:4</button>
+									<button>4:1</button>
+									<button>1:5</button>
+									<button>5:1</button>
+									<button>2:4</button>
+									<button>4:2</button>
+									<button>2:5</button>
+									<button>5:2</button>
+									<button>3:4</button>
+									<button>4:3</button>
+									<button>3:5</button>
+									<button>5:3</button>
+									<button>4:4</button>
+									<button>4:5</button>
+									<button>5:4</button>
+									<button>5:5</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h3>Голы/Обе забьют + Результат/Тотал</h3>
+				<div class="inner-accordion-content" id="goals-wrapper">
+					<div>
+						<div id="goals">
+							<h3>Голы</h3>
+							<div>
+								<div id="bothscore-game">
+									<button>Обе забьют</button>
+									<button>Хозяева забьют</button>
+									<button>Гости забьют</button>
+								</div>
+							</div>
+							<h3>Голы команд по таймам</h3>
+							<div>
+								<div id="bothscore-half">
+									<button>Хозяева забьют <br> в 1 тайме</button>
+									<button>Хозяева забьют <br> во 2 тайме</button>
+									<button>Гости забьют <br> в 1 тайме</button>
+									<button>Гости забьют <br> во 2 тайме</button>
+									<button>Хозяева забьют <br> в обоих таймах</button>
+									<button>Гости забьют <br> в обоих таймах</button>
+									<button>Обе забьют <br> в 1 тайме</button>
+									<button>Обе забьют <br> во 2 тайме</button>
+									<button>Обе забьют <br> в обоих таймах</button>
+									<button>Голы <br> в обоих таймах</button>
+								</div>
+							</div>
+							<h3>Обе забьют + Результат матча</h3>
+							<div>
+								<div id="bothscore-result">
+									<button>П1 + Обе забьют</button>
+									<button>П2 + Обе забьют</button>
+									<button>1Х + Обе забьют</button>
+									<button>Х2 + Обе забьют</button>
+									<button>Х + Обе забьют</button>
+									<button>12 + Обе забьют</button>
+								</div>
+							</div>
+							<h3>Обе забьют + Тотал голов</h3>
+							<div>
+								<div id="bothscore-goals-amount">
+									<button>ОЗ + <br> ТМ 1,5</button>
+									<button>ОЗ + <br> ТМ 2</button>
+									<button>ОЗ + <br> ТМ 2,5</button>
+									<button>ОЗ + <br> ТМ 3</button>
+									<button>ОЗ + <br> ТМ 3,5</button>
+									<button>ОЗ + <br> ТМ 4</button>
+									<button>ОЗ + <br> ТМ 4,5</button>
+									<button>ОЗ + <br> ТМ 5</button>
+									<button>ОЗ + <br> ТМ 5,5</button>
+
+									<button>ОЗ + <br> ТБ 1,5</button>
+									<button>ОЗ + <br> ТБ 2</button>
+									<button>ОЗ + <br> ТБ 2,5</button>
+									<button>ОЗ + <br> ТБ 3</button>
+									<button>ОЗ + <br> ТБ 3,5</button>
+									<button>ОЗ + <br> ТБ 4</button>
+									<button>ОЗ + <br> ТБ 4,5</button>
+									<button>ОЗ + <br> ТБ 5</button>
+									<button>ОЗ + <br> ТБ 5,5</button>
+								</div>
+							</div>
+							<h3>Любая команда забьет более Х голов</h3>
+							<div>
+								<div id="anyscore-more">
+									<button>Любая команда <br> забьет 2 и больше голов</button>
+									<button>Любая команда <br> забьет 3 и больше голов</button>
+									<button>Любая команда <br> забьет 4 и больше голов</button>
+									<button>Любая команда <br> забьет 5 и больше голов</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h3>Таймы</h3>
+				<div class="inner-accordion-content" id="half-wrapper">
+					<div>
+						<div id="half">
+							<h3>Результат тайма</h3>
+							<div>
+								<div id="half-result">
+									<button>1й тайм: П1</button>
+									<button>1й тайм: Х</button>
+									<button>1й тайм: П2</button>
+									<button>1й тайм: Х1</button>
+									<button>1й тайм: 12</button>
+									<button>1й тайм: Х2</button>
+									<button>2й тайм: П1</button>
+									<button>2й тайм: Х</button>
+									<button>2й тайм: П2</button>
+									<button>2й тайм: Х1</button>
+									<button>2й тайм: 12</button>
+									<button>2й тайм: Х2</button>
+									<button>Любой тайм: П1</button>
+									<button>Любой тайм: Х</button>
+									<button>Любой тайм: П2</button>
+								</div>
+							</div>
+							<h3>Тайм / Матч</h3>
+							<div>
+								<div id="firsthalf-game">
+									<button>Тайм/Матч:<br>П1 / П1</button>
+									<button>Тайм/Матч:<br>П1 / Х</button>
+									<button>Тайм/Матч:<br>П1 / П2</button>
+									<button>Тайм/Матч:<br>Х / П1</button>
+									<button>Тайм/Матч:<br>Х / Х</button>
+									<button>Тайм/Матч:<br>Х / П2</button>
+									<button>Тайм/Матч:<br>П2 / П1</button>
+									<button>Тайм/Матч:<br>П2 / Х</button>
+									<button>Тайм/Матч:<br>П2 / П2</button>
+								</div>
+							</div>
+							<h3>1й тайм / 2й тайм</h3>
+							<div>
+								<div id="firsthalf-secondhalf">
+									<button>1й/2й тайм:<br>П1 / П1</button>
+									<button>1й/2й тайм:<br>П1 / Х</button>
+									<button>1й/2й тайм:<br>П1 / П2</button>
+									<button>1й/2й тайм:<br>Х / П1</button>
+									<button>1й/2й тайм:<br>Х / Х</button>
+									<button>1й/2й тайм:<br>Х / П2</button>
+									<button>1й/2й тайм:<br>П2 / П1</button>
+									<button>1й/2й тайм:<br>П2 / Х</button>
+									<button>1й/2й тайм:<br>П2 / П2</button>
+								</div>
+							</div>
+							<h3>Счёт - 1й тайм</h3>
+							<div>
+								<div id="firsthalf-result">
+									<button>1й тайм:<br>0:0</button>
+									<button>1й тайм:<br>1:0</button>
+									<button>1й тайм:<br>2:0</button>
+									<button>1й тайм:<br>3:0</button>
+									<button>1й тайм:<br>0:1</button>
+									<button>1й тайм:<br>1:1</button>
+									<button>1й тайм:<br>2:1</button>
+									<button>1й тайм:<br>3:1</button>
+									<button>1й тайм:<br>0:2</button>
+									<button>1й тайм:<br>1:2</button>
+									<button>1й тайм:<br>2:2</button>
+									<button>1й тайм:<br>3:2</button>
+									<button>1й тайм:<br>0:3</button>
+									<button>1й тайм:<br>1:3</button>
+									<button>1й тайм:<br>2:3</button>
+									<button>1й тайм:<br>3:3</button>
+								</div>
+							</div>
+							<h3>Счёт - 2й тайм</h3>
+							<div>
+								<div id="secondhalf-result">
+									<button>2й тайм:<br>0:0</button>
+									<button>2й тайм:<br>1:0</button>
+									<button>2й тайм:<br>2:0</button>
+									<button>2й тайм:<br>3:0</button>
+									<button>2й тайм:<br>0:1</button>
+									<button>2й тайм:<br>1:1</button>
+									<button>2й тайм:<br>2:1</button>
+									<button>2й тайм:<br>3:1</button>
+									<button>2й тайм:<br>0:2</button>
+									<button>2й тайм:<br>1:2</button>
+									<button>2й тайм:<br>2:2</button>
+									<button>2й тайм:<br>3:2</button>
+									<button>2й тайм:<br>0:3</button>
+									<button>2й тайм:<br>1:3</button>
+									<button>2й тайм:<br>2:3</button>
+									<button>2й тайм:<br>3:3</button>
+								</div>
+							</div>
+							<h3>Обе забьют + Результат тайма</h3>
+							<div>
+								<div id="goals-half-result">
+									<button>1й тайм:<br>ОЗ + П1</button>
+									<button>1й тайм:<br>ОЗ + Х</button>
+									<button>1й тайм:<br>ОЗ + П2</button>
+									<button>1й тайм:<br>ОЗ + 1Х</button>
+									<button>1й тайм:<br>ОЗ + 12</button>
+									<button>1й тайм:<br>ОЗ + Х2</button>
+									<button>2й тайм:<br>ОЗ + П1</button>
+									<button>2й тайм:<br>ОЗ + Х</button>
+									<button>2й тайм:<br>ОЗ + П2</button>
+									<button>2й тайм:<br>ОЗ + 1Х</button>
+									<button>2й тайм:<br>ОЗ + 12</button>
+									<button>2й тайм:<br>ОЗ + Х2</button>
+								</div>
+							</div>
+							<h3>Фора - 1й тайм</h3>
+							<div>
+								<div id="firsthalf-handicap">
+									<button>1й тайм:<br>Ф1(0)</button>
+									<button>1й тайм:<br>Ф1(-1)</button>
+									<button>1й тайм:<br>Ф1(+1)</button>
+									<button>1й тайм:<br>Ф1(-1,5)</button>
+									<button>1й тайм:<br>Ф1(+1,5)</button>
+									<button>1й тайм:<br>Ф1(-2)</button>
+									<button>1й тайм:<br>Ф1(+2)</button>
+									<button>1й тайм:<br>Ф1(-2,5)</button>
+									<button>1й тайм:<br>Ф1(+2,5)</button>
+									<button>1й тайм:<br>Ф2(0)</button>
+									<button>1й тайм:<br>Ф2(-1)</button>
+									<button>1й тайм:<br>Ф2(+1)</button>
+									<button>1й тайм:<br>Ф2(-1,5)</button>
+									<button>1й тайм:<br>Ф2(+1,5)</button>
+									<button>1й тайм:<br>Ф2(-2)</button>
+									<button>1й тайм:<br>Ф2(+2)</button>
+									<button>1й тайм:<br>Ф2(-2,5)</button>
+									<button>1й тайм:<br>Ф2(+2,5)</button>
+								</div>
+							</div>
+							<h3>Фора - 2й тайм</h3>
+							<div>
+								<div id="secondhalf-handicap">
+									<button>2й тайм:<br>Ф1(0)</button>
+									<button>2й тайм:<br>Ф1(-1)</button>
+									<button>2й тайм:<br>Ф1(+1)</button>
+									<button>2й тайм:<br>Ф1(-1,5)</button>
+									<button>2й тайм:<br>Ф1(+1,5)</button>
+									<button>2й тайм:<br>Ф1(-2)</button>
+									<button>2й тайм:<br>Ф1(+2)</button>
+									<button>2й тайм:<br>Ф1(-2,5)</button>
+									<button>2й тайм:<br>Ф1(+2,5)</button>
+									<button>2й тайм:<br>Ф2(0)</button>
+									<button>2й тайм:<br>Ф2(-1)</button>
+									<button>2й тайм:<br>Ф2(+1)</button>
+									<button>2й тайм:<br>Ф2(-1,5)</button>
+									<button>2й тайм:<br>Ф2(+1,5)</button>
+									<button>2й тайм:<br>Ф2(-2)</button>
+									<button>2й тайм:<br>Ф2(+2)</button>
+									<button>2й тайм:<br>Ф2(-2,5)</button>
+									<button>2й тайм:<br>Ф2(+2,5)</button>
+								</div>
+							</div>
+							<h3>Тотал - 1й тайм</h3>
+							<div>
+								<div id="firsthalf-score-amount">
+									<button>1й тайм:<br>ТМ 0,5</button>
+									<button>1й тайм:<br>ТМ 1</button>
+									<button>1й тайм:<br>ТМ 1,5</button>
+									<button>1й тайм:<br>ТМ 2</button>
+									<button>1й тайм:<br>ТМ 2,5</button>
+									<button>1й тайм:<br>ТМ 3</button>
+									<button>1й тайм:<br>ТБ 0,5</button>
+									<button>1й тайм:<br>ТБ 1</button>
+									<button>1й тайм:<br>ТБ 1,5</button>
+									<button>1й тайм:<br>ТБ 2</button>
+									<button>1й тайм:<br>ТБ 2,5</button>
+									<button>1й тайм:<br>ТБ 3</button>
+								</div>
+							</div>
+							<h3>Тотал - 2й тайм</h3>
+							<div>
+								<div id="secondhalf-score-amount">
+									<button>2й тайм:<br>ТМ 0,5</button>
+									<button>2й тайм:<br>ТМ 1</button>
+									<button>2й тайм:<br>ТМ 1,5</button>
+									<button>2й тайм:<br>ТМ 2</button>
+									<button>2й тайм:<br>ТМ 2,5</button>
+									<button>2й тайм:<br>ТМ 3</button>
+									<button>2й тайм:<br>ТБ 0,5</button>
+									<button>2й тайм:<br>ТБ 1</button>
+									<button>2й тайм:<br>ТБ 1,5</button>
+									<button>2й тайм:<br>ТБ 2</button>
+									<button>2й тайм:<br>ТБ 2,5</button>
+									<button>2й тайм:<br>ТБ 3</button>
+								</div>
+							</div>
+
+							<h3>Индивидуальный тотал - 1й тайм</h3>
+							<div>
+								<div id="firsthalf-teamscore-amount">
+									<button>1й тайм:<br>ИТМ 0,5</button>
+									<button>1й тайм:<br>ИТМ 1</button>
+									<button>1й тайм:<br>ИТМ 1,5</button>
+									<button>1й тайм:<br>ИТМ 2</button>
+									<button>1й тайм:<br>ИТМ 2,5</button>
+									<button>1й тайм:<br>ИТМ 3</button>
+									<button>1й тайм:<br>ИТБ 0,5</button>
+									<button>1й тайм:<br>ИТБ 1</button>
+									<button>1й тайм:<br>ИТБ 1,5</button>
+									<button>1й тайм:<br>ИТБ 2</button>
+									<button>1й тайм:<br>ИТБ 2,5</button>
+									<button>1й тайм:<br>ИТБ 3</button>
+								</div>
+							</div>
+							<h3>Индивидуальный тотал - 2й тайм</h3>
+							<div>
+								<div id="secondhalf-teamscore-amount">
+									<button>2й тайм:<br>ИТМ 0,5</button>
+									<button>2й тайм:<br>ИТМ 1</button>
+									<button>2й тайм:<br>ИТМ 1,5</button>
+									<button>2й тайм:<br>ИТМ 2</button>
+									<button>2й тайм:<br>ИТМ 2,5</button>
+									<button>2й тайм:<br>ИТМ 3</button>
+									<button>2й тайм:<br>ИТБ 0,5</button>
+									<button>2й тайм:<br>ИТБ 1</button>
+									<button>2й тайм:<br>ИТБ 1,5</button>
+									<button>2й тайм:<br>ИТБ 2</button>
+									<button>2й тайм:<br>ИТБ 2,5</button>
+									<button>2й тайм:<br>ИТБ 3</button>
+								</div>
+							</div>
+
+							<h3>1й тайм - Тотал меньше + Результат</h3>
+							<div>
+								<div id="firsthalf-result-total-less">
+									<button>1й тайм:<br>П1 + ТМ 1,5</button>
+									<button>1й тайм:<br>Х + ТМ 1,5</button>
+									<button>1й тайм:<br>П2 + ТМ 1,5</button>
+									<button>1й тайм:<br>1Х + ТМ 1,5</button>
+									<button>1й тайм:<br>12 + ТМ 1,5</button>
+									<button>1й тайм:<br>Х2 + ТМ 1,5</button>
+									<button>1й тайм:<br>П1 + ТМ 2</button>
+									<button>1й тайм:<br>Х + ТМ 2</button>
+									<button>1й тайм:<br>П2 + ТМ 2</button>
+									<button>1й тайм:<br>1Х + ТМ 2</button>
+									<button>1й тайм:<br>12 + ТМ 2</button>
+									<button>1й тайм:<br>Х2 + ТМ 2</button>
+									<button>1й тайм:<br>П1 + ТМ 2,5</button>
+									<button>1й тайм:<br>Х + ТМ 2,5</button>
+									<button>1й тайм:<br>П2 + ТМ 2,5</button>
+									<button>1й тайм:<br>1Х + ТМ 2,5</button>
+									<button>1й тайм:<br>12 + ТМ 2,5</button>
+									<button>1й тайм:<br>Х2 + ТМ 2,5</button>
+									<button>1й тайм:<br>П1 + ТМ 3</button>
+									<button>1й тайм:<br>Х + ТМ 3</button>
+									<button>1й тайм:<br>П2 + ТМ 3</button>
+									<button>1й тайм:<br>1Х + ТМ 3</button>
+									<button>1й тайм:<br>12 + ТМ 3</button>
+									<button>1й тайм:<br>Х2 + ТМ 3</button>
+									<button>1й тайм:<br>П1 + ТМ 3,5</button>
+									<button>1й тайм:<br>Х + ТМ 3,5</button>
+									<button>1й тайм:<br>П2 + ТМ 3,5</button>
+									<button>1й тайм:<br>1Х + ТМ 3,5</button>
+									<button>1й тайм:<br>12 + ТМ 3,5</button>
+									<button>1й тайм:<br>Х2 + ТМ 3,5</button>
+								</div>
+							</div>
+							<h3>1й тайм - Тотал больше + Результат</h3>
+							<div>
+								<div id="firsthalf-result-total-more">
+									<button>1й тайм:<br>П1 + ТБ 1,5</button>
+									<button>1й тайм:<br>Х + ТБ 1,5</button>
+									<button>1й тайм:<br>П2 + ТБ 1,5</button>
+									<button>1й тайм:<br>1Х + ТБ 1,5</button>
+									<button>1й тайм:<br>12 + ТБ 1,5</button>
+									<button>1й тайм:<br>Х2 + ТБ 1,5</button>
+									<button>1й тайм:<br>П1 + ТБ 2</button>
+									<button>1й тайм:<br>Х + ТБ 2</button>
+									<button>1й тайм:<br>П2 + ТБ 2</button>
+									<button>1й тайм:<br>1Х + ТБ 2</button>
+									<button>1й тайм:<br>12 + ТБ 2</button>
+									<button>1й тайм:<br>Х2 + ТБ 2</button>
+									<button>1й тайм:<br>П1 + ТБ 2,5</button>
+									<button>1й тайм:<br>Х + ТБ 2,5</button>
+									<button>1й тайм:<br>П2 + ТБ 2,5</button>
+									<button>1й тайм:<br>1Х + ТБ 2,5</button>
+									<button>1й тайм:<br>12 + ТБ 2,5</button>
+									<button>1й тайм:<br>Х2 + ТБ 2,5</button>
+									<button>1й тайм:<br>П1 + ТБ 3</button>
+									<button>1й тайм:<br>Х + ТБ 3</button>
+									<button>1й тайм:<br>П2 + ТБ 3</button>
+									<button>1й тайм:<br>1Х + ТБ 3</button>
+									<button>1й тайм:<br>12 + ТБ 3</button>
+									<button>1й тайм:<br>Х2 + ТБ 3</button>
+									<button>1й тайм:<br>П1 + ТБ 3,5</button>
+									<button>1й тайм:<br>Х + ТБ 3,5</button>
+									<button>1й тайм:<br>П2 + ТБ 3,5</button>
+									<button>1й тайм:<br>1Х + ТБ 3,5</button>
+									<button>1й тайм:<br>12 + ТБ 3,5</button>
+									<button>1й тайм:<br>Х2 + ТБ 3,5</button>
+								</div>
+							</div>
+							<h3>2й тайм - Тотал меньше + Результат</h3>
+							<div>
+								<div id="secondhalf-result-total-less">
+									<button>2й тайм:<br>П1 + ТМ 1,5</button>
+									<button>2й тайм:<br>Х + ТМ 1,5</button>
+									<button>2й тайм:<br>П2 + ТМ 1,5</button>
+									<button>2й тайм:<br>1Х + ТМ 1,5</button>
+									<button>2й тайм:<br>12 + ТМ 1,5</button>
+									<button>2й тайм:<br>Х2 + ТМ 1,5</button>
+									<button>2й тайм:<br>П1 + ТМ 2</button>
+									<button>2й тайм:<br>Х + ТМ 2</button>
+									<button>2й тайм:<br>П2 + ТМ 2</button>
+									<button>2й тайм:<br>1Х + ТМ 2</button>
+									<button>2й тайм:<br>12 + ТМ 2</button>
+									<button>2й тайм:<br>Х2 + ТМ 2</button>
+									<button>2й тайм:<br>П1 + ТМ 2,5</button>
+									<button>2й тайм:<br>Х + ТМ 2,5</button>
+									<button>2й тайм:<br>П2 + ТМ 2,5</button>
+									<button>2й тайм:<br>1Х + ТМ 2,5</button>
+									<button>2й тайм:<br>12 + ТМ 2,5</button>
+									<button>2й тайм:<br>Х2 + ТМ 2,5</button>
+									<button>2й тайм:<br>П1 + ТМ 3</button>
+									<button>2й тайм:<br>Х + ТМ 3</button>
+									<button>2й тайм:<br>П2 + ТМ 3</button>
+									<button>2й тайм:<br>1Х + ТМ 3</button>
+									<button>2й тайм:<br>12 + ТМ 3</button>
+									<button>2й тайм:<br>Х2 + ТМ 3</button>
+									<button>2й тайм:<br>П1 + ТМ 3,5</button>
+									<button>2й тайм:<br>Х + ТМ 3,5</button>
+									<button>2й тайм:<br>П2 + ТМ 3,5</button>
+									<button>2й тайм:<br>1Х + ТМ 3,5</button>
+									<button>2й тайм:<br>12 + ТМ 3,5</button>
+									<button>2й тайм:<br>Х2 + ТМ 3,5</button>
+								</div>
+							</div>
+							<h3>2й тайм - Тотал больше + Результат</h3>
+							<div>
+								<div id="secondhalf-result-total-more">
+									<button>2й тайм:<br>П1 + ТБ 1,5</button>
+									<button>2й тайм:<br>Х + ТБ 1,5</button>
+									<button>2й тайм:<br>П2 + ТБ 1,5</button>
+									<button>2й тайм:<br>1Х + ТБ 1,5</button>
+									<button>2й тайм:<br>12 + ТБ 1,5</button>
+									<button>2й тайм:<br>Х2 + ТБ 1,5</button>
+									<button>2й тайм:<br>П1 + ТБ 2</button>
+									<button>2й тайм:<br>Х + ТБ 2</button>
+									<button>2й тайм:<br>П2 + ТБ 2</button>
+									<button>2й тайм:<br>1Х + ТБ 2</button>
+									<button>2й тайм:<br>12 + ТБ 2</button>
+									<button>2й тайм:<br>Х2 + ТБ 2</button>
+									<button>2й тайм:<br>П1 + ТБ 2,5</button>
+									<button>2й тайм:<br>Х + ТБ 2,5</button>
+									<button>2й тайм:<br>П2 + ТБ 2,5</button>
+									<button>2й тайм:<br>1Х + ТБ 2,5</button>
+									<button>2й тайм:<br>12 + ТБ 2,5</button>
+									<button>2й тайм:<br>Х2 + ТБ 2,5</button>
+									<button>2й тайм:<br>П1 + ТБ 3</button>
+									<button>2й тайм:<br>Х + ТБ 3</button>
+									<button>2й тайм:<br>П2 + ТБ 3</button>
+									<button>2й тайм:<br>1Х + ТБ 3</button>
+									<button>2й тайм:<br>12 + ТБ 3</button>
+									<button>2й тайм:<br>Х2 + ТБ 3</button>
+									<button>2й тайм:<br>П1 + ТБ 3,5</button>
+									<button>2й тайм:<br>Х + ТБ 3,5</button>
+									<button>2й тайм:<br>П2 + ТБ 3,5</button>
+									<button>2й тайм:<br>1Х + ТБ 3,5</button>
+									<button>2й тайм:<br>12 + ТБ 3,5</button>
+									<button>2й тайм:<br>Х2 + ТБ 3,5</button>
+								</div>
+							</div>
+
+							<h3>Тайм с большим количеством голов</h3>
+							<div>
+								<div id="half-moregoals">
+									<button>Тотал голов:<br>1й &gt; 2й тайм</button>
+									<button>Тотал голов:<br>Поровну</button>
+									<button>Тотал голов:<br>1й &lt; 2й тайм</button>
+									<button>Тотал голов:<br>(Хозяева)<br>1й &gt; 2й тайм</button>
+									<button>Тотал голов:<br>(Хозяева)<br>Поровну</button>
+									<button>Тотал голов:<br>(Хозяева)<br>1й &lt; 2й тайм</button>
+									<button>Тотал голов:<br>(Гости)<br>1й &gt; 2й тайм</button>
+									<button>Тотал голов:<br>(Гости)<br>Поровну</button>
+									<button>Тотал голов:<br>(Гости)<br>1й &lt; 2й тайм</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<h3>Особые ставки</h3>
+				<div class="inner-accordion-content" id="win-style-wrapper">
+					<div>
+						<div id="win-style">
+							<h3>Победа всухую</h3>
+							<div>
+								<div id="dry-win">
+									<button>Хозяева - победа всухую</button>
+									<button>Гости - победа всухую</button>
+									<button>Хозяева или гости - победа всухую</button>
+								</div>
+							</div>
+							<h3>Разница в счёте</h3>
+							<div>
+								<div id="score-difference">
+									<button>Хозяева в 1 гол</button>
+									<button>Гости в 1 гол</button>
+									<button>Хозяева в 2 гола</button>
+									<button>Гости в 2 гола</button>
+									<button>Хозяева в 3 гола</button>
+									<button>Гости в 3 гола</button>
+									<button>Хозяева или гости в 1 гол</button>
+									<button>Хозяева или гости в 2 гола</button>
+									<button>Хозяева или гости в 3 гола</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Инфо о ставке -->
+		<div id="selected-bet-field-wrapper">
+			<div id="selected-bet-title">Выбранная ставка:</div>
+			<div id="selected-bet-wrapper">
+				<div id="selected-bet"></div>
+				<button id="selected-bet-cancel-btn"></button>
+			</div>
+		</div>
+
+		<div id="bet-coefficient-field-wrapper">
+			<div id="bet-coefficient-field">
+				<div>Кэф:</div>
+				<div id="bet-coefficient-wrapper">
+					<input id="coefficient" type="text" autocomplete="off" required>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="submit-bet-button-wrapper">
+			<button id="submit-bet-button">Отправить ставку</button>
+		</div>
+		<div id="error-message" title="Ошибка!"></div>
+		<div id="submit-message" title="Подтвердить ставку"></div>
+		<div id="submit-blankbet-button-wrapper">
+			<button id="submit-blankbet-button">Отправить пустую ставку</button>
+			<button id="submit-blankbet-button2">Отправить пустые ставки (2 матча)</button>
+		</div>
+	</div>
+
+</body>
+
+</html>

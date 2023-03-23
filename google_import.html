@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Import</title>
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/google_import.css" />
+  </head>
+  <body>
+<div id="header-wrapper">
+  <div class="max-content">
+    <div id="main-nav">
+      <div class="nav-btn">
+        <a href="/">
+          <img class="logo-s" src="/source/img/logo.png" alt="logo" />
+        </a>
+      </div>
+      <div class="nav-btn">
+        <a id="currentbets-menuitem" href="google_import.html">Ставки</a>
+      </div>
+      <div class="nav-btn">
+        <a id="standings-menuitem" href="bet_input.html">Таблица</a>
+      </div>
+
+      <div id="dropdown-nav" class="nav-btn">
+        <span id="dropdown-icon">
+          <span></span>
+        </span>
+        <div id="dropdown-nav-menu">
+          <div>
+            <a id="results-menuitem" href="bet_input2.html">Результаты</a>
+          </div>
+          <div class="nav-btn">
+            <a id="statistics-menuitem" href="#">Статистика</a>
+          </div>
+          <div class="nav-btn">
+            <a id="other-menuitem" href="#">Прочее</a>
+          </div>
+          <div class="nav-btn">
+            <a id="archive-menuitem" href="#">Архив</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="text-center">Test: Import Google Sheet</h1>
+          </div>
+          <div id="Grid" class="grid">
+            <div id="team_name_title"></div>
+            <div id="team_points_title"></div>
+          </div>
+          <div id="Grid2" class="grid">
+            <div id="team_name"></div>
+            <div id="team_points"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+<script defer src="./js/jquery-3.6.4.js"></script>    <script src="js/google_import.js"></script>
+    <script src="js/menu.js"></script>
+  </body>
+</html>

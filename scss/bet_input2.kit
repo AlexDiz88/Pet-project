@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Внос ставок</title>
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/bet_input2.css" />
+  </head>
+  <body>
+    <!-- @import "../menu.html" -->
+    <div class="wrapper">
+      <div class="person">
+        <div class="dropdown-container">
+          <button class="dropdown__button" value="null_person">
+            Выбрать участника
+          </button>
+          <ul id="person-list" class="dropdown__list">
+            <li class="dropdown__list-item" data-value="Alex">Alex</li>
+            <li class="dropdown__list-item" data-value="Ihor">Ihor</li>
+            <li class="dropdown__list-item" data-value="Lёxa">Lёxa</li>
+            <li class="dropdown__list-item" data-value="Max">Max</li>
+            <li class="dropdown__list-item" data-value="Serj">Serj</li>
+            <li class="dropdown__list-item" data-value="Vater">Vater</li>
+          </ul>
+          <input
+            type="text"
+            name="selected-person"
+            value=""
+            class="dropdown__input-hidden"
+          />
+        </div>
+      </div>
+
+      <div class="tournament">
+        <div class="dropdown-container">
+          <button id="tournament-dropdown" class="dropdown__button">
+            Выбрать турнир
+          </button>
+          <ul id="tournament-list" class="dropdown__list">
+            <li id="EPL" class="dropdown__list-item" data-value="EPL">АПЛ</li>
+            <li id="BL" class="dropdown__list-item" data-value="BL">
+              Бундеслига
+            </li>
+            <li id="CL" class="dropdown__list-item" data-value="CL">
+              Лига Чемпионов
+            </li>
+            <li id="LE" class="dropdown__list-item" data-value="LE">
+              Лига Европы
+            </li>
+          </ul>
+          <input
+            type="text"
+            name="selected-tournament"
+            value=""
+            class="dropdown__input-hidden"
+          />
+        </div>
+      </div>
+
+      <div class="teams dropdown-container" id="team-dropdown-container">
+        <input
+          type="text"
+          name="selected-tournament"
+          value=""
+          class="dropdown__input-hidden"
+        />
+      </div>
+
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div class="test">Сделать кардиган для всех + Популярные</div>
+      <div class="bet">Подумать как реализовать ввод счёта</div>
+      <div class="bet">Кэф</div>
+      <div class="bet">Кнопка "добавить ставку"</div>
+    </div>
+    <!-- @import "../scripts_list.html" -->
+    <script src="js/menu.js"></script>
+    <script src="js/bet_input2.js"></script>
+  </body>
+</html>

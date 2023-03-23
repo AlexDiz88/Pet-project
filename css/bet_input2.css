@@ -1,0 +1,108 @@
+body {
+  top: 80px;
+  background-color: rgb(212, 200, 183);
+}
+
+.wrapper {
+  padding: 70px 5px 0 5px;
+}
+
+select {
+  padding: 3px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(33, 44, 82);
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 3px;
+  width: 250px;
+  height: 50px;
+  margin: 10px 0;
+}
+
+.dropdown__button {
+  position: relative;
+  display: block;
+  width: 250px;
+  text-align: left;
+  background: whitesmoke;
+  color: rgb(33, 44, 82);
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 5px;
+  height: 50px;
+  padding: 10px 25px 10px 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.dropdown__button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-width: 10.4px 6px 0 6px;
+  border-color: rgb(33, 44, 82) transparent transparent transparent;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.dropdown-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.dropdown__button:focus, .dropdown__button--active {
+  outline: none;
+  -webkit-box-shadow: 0 0px 0 3px rgba(26, 26, 26, 0.4);
+          box-shadow: 0 0px 0 3px rgba(26, 26, 26, 0.4);
+}
+.dropdown__list {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0px;
+  margin: 5px 0 0 0;
+  padding: 0;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 4px 8px rgb(33, 44, 82);
+          box-shadow: 0 4px 8px rgb(33, 44, 82);
+  overflow: hidden;
+  border-radius: 5px;
+  width: 250px;
+  z-index: 1;
+}
+.dropdown__list--visible {
+  display: block;
+}
+.dropdown__list-item {
+  margin: 0;
+  padding: 0;
+  height: 45px;
+  border: 1px solid black;
+  border-bottom: none;
+  color: rgb(33, 44, 82);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 20px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.dropdown__list-item:first-child {
+  border-radius: 3px 3px 0 0;
+}
+.dropdown__list-item:last-child {
+  border-radius: 0 0 6px 6px;
+  border-bottom: 1px solid #000;
+}
+.dropdown__list-item:hover {
+  background-color: rgb(255, 217, 147);
+}
+.dropdown__input-hidden {
+  display: none;
+}

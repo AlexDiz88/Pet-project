@@ -1,0 +1,615 @@
+// переменные
+$maincolor: rgb(33, 44, 82);
+$sidecolor: rgb(218, 218, 218);
+$extracolor: rgb(30, 25, 54);
+
+body {
+  top: 80px;
+  background-color: rgb(212, 200, 183);
+  font-size: 16px;
+  font-weight: bold;
+  color: $maincolor;
+}
+
+.wrapper {
+  padding: 70px 5px 0 5px;
+  @media (min-width: 767px) {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.unit-display {
+  &--hidden {
+    display: none !important;
+  }
+  &--visible {
+    display: block !important;
+  }
+}
+
+.select-wrapper {
+  margin-bottom: 15px;
+  padding-left: 5px;
+}
+
+#person-button,
+#team1-button,
+#team2-button,
+#team3-button,
+#team4-button,
+#tournament-button {
+  width: 225px;
+  height: 50px;
+  background-color: whitesmoke;
+  color: $maincolor;
+  border: 2px solid $maincolor;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px $maincolor;
+  padding-top: 12px;
+  &:active {
+    outline: none;
+  }
+}
+
+#tournament-button,
+#person-button {
+  &:active {
+    outline: none;
+    padding: 12px 0 0 16px; // регулировка смещения текста при клике на selectmenu
+  }
+}
+
+#team1-button,
+#team2-button,
+#team3-button,
+#team4-button {
+  width: 225px;
+  padding: 0;
+  margin-bottom: 15px;
+  padding-top: 1px;
+
+  & > span.ui-selectmenu-text {
+    padding-left: 15px;
+  }
+}
+
+.team-wrapper {
+  display: none;
+}
+
+#person-menu,
+#team1-menu,
+#team2-menu,
+#team3-menu,
+#team4-menu,
+#tournament-menu {
+  border: 2px solid $maincolor;
+  box-shadow: 0 4px 8px $maincolor;
+  border-radius: 3px 3px 6px 6px;
+  margin-top: 1px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(230, 230, 230);
+  box-sizing: border-box;
+}
+
+#tour-spinner {
+  box-sizing: border-box;
+  text-align: center;
+  color: $maincolor;
+  font-size: 16px;
+  font-weight: bold;
+  width: 40px;
+  height: 50px;
+  padding: 0 5px 5px 0px;
+  background-color: whitesmoke;
+  margin-top: -1px;
+}
+
+body
+  > div.wrapper
+  > div.select-wrapper.tournament-wrapper
+  > span.ui-spinner.ui-corner-all.ui-widget.ui-widget-content {
+  background-color: whitesmoke;
+  width: 75px;
+  height: 50px;
+  border: 2px solid $maincolor;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px $maincolor;
+}
+
+#tournament-button > span.ui-selectmenu-text {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-top: -16px;
+}
+
+#tournament-menu li div {
+  display: flex;
+  text-align: center;
+  &::before {
+    content: "";
+    width: 35px;
+    height: 35px;
+    margin: -10px 5px 0 -5px;
+  }
+}
+
+#tournament-menu > li:nth-child(2) div::before {
+  background: url(../source/img/teams_logo/epl_logo.png) no-repeat;
+  background-size: contain;
+}
+#tournament-menu > li:nth-child(3) div::before {
+  background: url(../source/img/teams_logo/bundesliga_logo.png) no-repeat;
+  background-size: contain;
+}
+#tournament-menu > li:nth-child(4) div::before {
+  background: url(../source/img/teams_logo/cl_logo.png) no-repeat;
+  background-size: contain;
+}
+#tournament-menu > li:nth-child(5) div::before {
+  background: url(../source/img/teams_logo/le_logo.png) no-repeat;
+  background-size: contain;
+}
+
+#team1-menu,
+#team2-menu,
+#team3-menu,
+#team4-menu {
+  width: 340px;
+  position: fixed;
+  top: 65px;
+  left: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  & li.ui-menu-item {
+    font-size: 16px;
+    border: 1px solid rgb(46, 46, 46);
+    &:last-child,
+    &:nth-last-child(2) {
+      border-bottom: none;
+    }
+    &:hover {
+      background-color: rgb(215, 233, 179);
+    }
+  }
+  & .ui-state-active,
+  & .ui-state-active:hover {
+    padding-left: 0.4em;
+  }
+}
+
+.ui-selectmenu-text {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 0;
+}
+
+li.ui-menu-item {
+  height: 50px;
+  border-bottom: 2px solid black;
+  color: $maincolor;
+  padding: 13px 0 0 10px;
+
+  &:first-child {
+    display: none;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background-color: rgb(176, 250, 219);
+  }
+}
+
+#person-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#tournament-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s {
+  margin-top: 4px;
+  scale: 1.4;
+}
+#team1-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#team2-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#team3-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#team4-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s {
+  display: none;
+}
+
+#team1-button > span,
+#team2-button > span,
+#team3-button > span,
+#team4-button > span {
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  font-size: 1em;
+}
+
+//радиокнопки
+.radio-wrapper {
+  margin: 20px 0 15px -5px;
+  color: $maincolor;
+  & label {
+    margin-left: -5px;
+  }
+}
+
+input[type="radio"] {
+  background: #fff;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  margin: -3px 5px 0 15px;
+  text-align: center;
+}
+
+// autocomplete --------------------------------------------
+#cl-teams-home,
+#cl-teams-away,
+#le-teams-home,
+#le-teams-away {
+  height: 50px;
+  box-sizing: border-box;
+  border: 2px solid $maincolor;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 4px 8px $maincolor;
+  width: 176px;
+  border-left: none;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  color: $maincolor;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.ui-autocomplete .ui-menu-item:first-child {
+  display: block;
+}
+
+.ui-autocomplete .ui-menu-item {
+  border: 1px solid $maincolor;
+  width: 135px;
+  font-size: 14px;
+  &:last-child {
+    border-bottom: 1px solid $maincolor;
+  }
+}
+
+.ui-autocomplete {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px 1px;
+  text-align: center;
+}
+
+#cl-teams-home-label,
+#cl-teams-away-label,
+#le-teams-home-label,
+#le-teams-away-label {
+  position: absolute;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: $maincolor;
+}
+
+#cl-teams-home-icon,
+#cl-teams-away-icon,
+#le-teams-home-icon,
+#le-teams-away-icon {
+  float: left;
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  margin-left: 5px;
+  border: 2px solid $maincolor;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 1px 4px 8px $maincolor;
+  border-right: none;
+  padding: 3px;
+}
+
+// accordion --------------------------------------------
+
+.bets-wrapper {
+  margin: 0 5px;
+  display: none;
+}
+
+#bet-types {
+  position: relative;
+  padding-bottom: 15px;
+  & .ui-accordion-header {
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(143, 143, 143);
+    color: whitesmoke;
+    padding-top: 13px;
+    box-shadow: 0 4px 7px black;
+    box-sizing: border-box;
+    & .ui-icon {
+      margin-right: 10px;
+      scale: 1.2;
+    }
+  }
+  & .ui-accordion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    & #special-bets,
+    #dry-win,
+    #anyscore-more {
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      min-width: 300px;
+    }
+    & #bothscore-result,
+    #score-difference,
+    #bothscore-half {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      & button {
+        min-width: 150px;
+      }
+    }
+    & #gameresult,
+    #popular-bets,
+    #homewin-goals-total-less,
+    #homewin-goals-total-more,
+    #awaywin-goals-total-less,
+    #awaywin-goals-total-more,
+    #firsthalf-game,
+    #firsthalf-secondhalf,
+    #bothscore-game,
+    #bothscore-goals-amount,
+    #half-result,
+    #goals-half-result,
+    #firsthalf-handicap,
+    #secondhalf-handicap,
+    #firsthalf-score-amount,
+    #secondhalf-score-amount,
+    #firsthalf-teamscore-amount,
+    #secondhalf-teamscore-amount,
+    #firsthalf-result-total-less,
+    #firsthalf-result-total-more,
+    #secondhalf-result-total-less,
+    #secondhalf-result-total-more {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      & button {
+        min-width: 100px;
+      }
+    }
+
+    & #half-moregoals {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      & button {
+        min-width: 100px;
+        height: 70px;
+      }
+    }
+
+    & #handicap,
+    #firsthalf-result,
+    #secondhalf-result,
+    #draw-goals-amount,
+    #gamescore-normal,
+    #gamescore-unnormal,
+    #goals-amount-home,
+    #goals-amount-away {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      & button {
+        min-width: 72px;
+      }
+    }
+    #goals-amount-game {
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      & button {
+        min-width: 57px;
+      }
+    }
+  }
+  & button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $maincolor;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 5px;
+    height: 50px;
+    margin: 5px 3px;
+    border: 2px solid $maincolor;
+    border-radius: 10px;
+    box-shadow: 0 4px 7px black;
+    font-size: 14px;
+    &:active {
+      position: relative;
+      top: 4px;
+      box-shadow: none;
+      background-color: rgb(181, 222, 135);
+    }
+  }
+}
+
+// вложенные accordions
+#gameresult-goals-amount,
+#gamescore,
+#half,
+#win-style,
+#goals,
+#goals-amount {
+  & .ui-accordion-header {
+    font-size: 14px;
+    background-color: rgb(59, 107, 163);
+  }
+}
+
+#gameresult-goals-amount-wrapper,
+#gamescore-wrapper,
+#half-wrapper,
+#win-style-wrapper,
+#goals-wrapper,
+#goals-amount-wrapper {
+  &.inner-accordion-content {
+    padding: 0;
+    margin: -1px;
+    display: block;
+  }
+}
+
+// поле для выбранной ставки
+#selected-bet-field-wrapper {
+  display: none;
+  margin: 0 5px 15px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: $maincolor;
+}
+
+#selected-bet-wrapper {
+  margin: 5px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(235, 226, 226);
+  border-radius: 5px;
+}
+
+#selected-bet {
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 225px;
+  height: 50px;
+  padding: 0 10px;
+  color: black;
+}
+
+#selected-bet-cancel-btn {
+  height: 50px;
+  min-width: 50px;
+  background: url(../source/img/cancel_icon.png) no-repeat;
+  background-size: contain;
+  //   background-color: rgb(128, 37, 37);
+  //   color: whitesmoke;
+  //   border-radius: 5px;
+  //   font-size: 40px;
+  //   font-weight: bold;
+}
+
+#bet-coefficient-field-wrapper {
+  display: none;
+}
+
+#bet-coefficient-field {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: $maincolor;
+}
+
+#bet-coefficient-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & input {
+    text-align: center;
+    width: 75px;
+    height: 50px;
+    margin-left: 10px;
+    border: 2px solid $maincolor;
+    border-radius: 10px;
+    box-shadow: 0 4px 7px black;
+    font-size: 16px;
+    font-weight: bold;
+    color: $maincolor;
+    &:focus {
+      border: 2px solid green;
+      box-shadow: 0 8px 15px black;
+    }
+  }
+}
+
+#submit-bet-button,
+#submit-blankbet-button,
+#submit-blankbet-button2 {
+  height: 80px;
+  background-color: $maincolor;
+  font-weight: bold;
+  color: whitesmoke;
+  font-size: 23px;
+  margin-left: 5px;
+  width: 225px;
+  box-sizing: border-box;
+  border: 1px solid whitesmoke;
+  box-shadow: 0 4px 7px black;
+}
+
+#submit-blankbet-button,
+#submit-blankbet-button2 {
+  background-color: rgb(112, 110, 110);
+  margin-top: 25px;
+}
+
+#submit-bet-button-wrapper,
+#submit-blankbet-button-wrapper {
+  display: none;
+}
+
+// модальное окно ошибки
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
+  border: 2px solid black;
+}
+
+.submit-message-titlebar {
+  background-color: rgb(31, 114, 23);
+  color: whitesmoke;
+}
+
+.error-message-titlebar {
+  background-color: rgb(128, 37, 37);
+  color: whitesmoke;
+}
+
+#submit-message {
+  line-height: 17px;
+}
+
+.ui-dialog-buttons
+  > div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix
+  > div
+  > button {
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 1px solid $maincolor;
+}

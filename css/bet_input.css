@@ -1,0 +1,728 @@
+body {
+  top: 80px;
+  background-color: rgb(212, 200, 183);
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(33, 44, 82);
+}
+
+.wrapper {
+  padding: 70px 5px 0 5px;
+}
+@media (min-width: 767px) {
+  .wrapper {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.unit-display--hidden {
+  display: none !important;
+}
+.unit-display--visible {
+  display: block !important;
+}
+
+.select-wrapper {
+  margin-bottom: 15px;
+  padding-left: 5px;
+}
+
+#person-button,
+#team1-button,
+#team2-button,
+#team3-button,
+#team4-button,
+#tournament-button {
+  width: 225px;
+  height: 50px;
+  background-color: whitesmoke;
+  color: rgb(33, 44, 82);
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 8px rgb(33, 44, 82);
+          box-shadow: 0 4px 8px rgb(33, 44, 82);
+  padding-top: 12px;
+}
+#person-button:active,
+#team1-button:active,
+#team2-button:active,
+#team3-button:active,
+#team4-button:active,
+#tournament-button:active {
+  outline: none;
+}
+
+#tournament-button:active,
+#person-button:active {
+  outline: none;
+  padding: 12px 0 0 16px;
+}
+
+#team1-button,
+#team2-button,
+#team3-button,
+#team4-button {
+  width: 225px;
+  padding: 0;
+  margin-bottom: 15px;
+  padding-top: 1px;
+}
+#team1-button > span.ui-selectmenu-text,
+#team2-button > span.ui-selectmenu-text,
+#team3-button > span.ui-selectmenu-text,
+#team4-button > span.ui-selectmenu-text {
+  padding-left: 15px;
+}
+
+.team-wrapper {
+  display: none;
+}
+
+#person-menu,
+#team1-menu,
+#team2-menu,
+#team3-menu,
+#team4-menu,
+#tournament-menu {
+  border: 2px solid rgb(33, 44, 82);
+  -webkit-box-shadow: 0 4px 8px rgb(33, 44, 82);
+          box-shadow: 0 4px 8px rgb(33, 44, 82);
+  border-radius: 3px 3px 6px 6px;
+  margin-top: 1px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgb(230, 230, 230);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#tour-spinner {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  color: rgb(33, 44, 82);
+  font-size: 16px;
+  font-weight: bold;
+  width: 40px;
+  height: 50px;
+  padding: 0 5px 5px 0px;
+  background-color: whitesmoke;
+  margin-top: -1px;
+}
+
+body > div.wrapper > div.select-wrapper.tournament-wrapper > span.ui-spinner.ui-corner-all.ui-widget.ui-widget-content {
+  background-color: whitesmoke;
+  width: 75px;
+  height: 50px;
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 8px rgb(33, 44, 82);
+          box-shadow: 0 4px 8px rgb(33, 44, 82);
+}
+
+#tournament-button > span.ui-selectmenu-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  margin-top: -16px;
+}
+
+#tournament-menu li div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+#tournament-menu li div::before {
+  content: "";
+  width: 35px;
+  height: 35px;
+  margin: -10px 5px 0 -5px;
+}
+
+#tournament-menu > li:nth-child(2) div::before {
+  background: url(../source/img/teams_logo/epl_logo.png) no-repeat;
+  background-size: contain;
+}
+
+#tournament-menu > li:nth-child(3) div::before {
+  background: url(../source/img/teams_logo/bundesliga_logo.png) no-repeat;
+  background-size: contain;
+}
+
+#tournament-menu > li:nth-child(4) div::before {
+  background: url(../source/img/teams_logo/cl_logo.png) no-repeat;
+  background-size: contain;
+}
+
+#tournament-menu > li:nth-child(5) div::before {
+  background: url(../source/img/teams_logo/le_logo.png) no-repeat;
+  background-size: contain;
+}
+
+#team1-menu,
+#team2-menu,
+#team3-menu,
+#team4-menu {
+  width: 340px;
+  position: fixed;
+  top: 65px;
+  left: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+#team1-menu li.ui-menu-item,
+#team2-menu li.ui-menu-item,
+#team3-menu li.ui-menu-item,
+#team4-menu li.ui-menu-item {
+  font-size: 16px;
+  border: 1px solid rgb(46, 46, 46);
+}
+#team1-menu li.ui-menu-item:last-child, #team1-menu li.ui-menu-item:nth-last-child(2),
+#team2-menu li.ui-menu-item:last-child,
+#team2-menu li.ui-menu-item:nth-last-child(2),
+#team3-menu li.ui-menu-item:last-child,
+#team3-menu li.ui-menu-item:nth-last-child(2),
+#team4-menu li.ui-menu-item:last-child,
+#team4-menu li.ui-menu-item:nth-last-child(2) {
+  border-bottom: none;
+}
+#team1-menu li.ui-menu-item:hover,
+#team2-menu li.ui-menu-item:hover,
+#team3-menu li.ui-menu-item:hover,
+#team4-menu li.ui-menu-item:hover {
+  background-color: rgb(215, 233, 179);
+}
+#team1-menu .ui-state-active, #team1-menu .ui-state-active:hover,
+#team2-menu .ui-state-active,
+#team2-menu .ui-state-active:hover,
+#team3-menu .ui-state-active,
+#team3-menu .ui-state-active:hover,
+#team4-menu .ui-state-active,
+#team4-menu .ui-state-active:hover {
+  padding-left: 0.4em;
+}
+
+.ui-selectmenu-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  margin-right: 0;
+}
+
+li.ui-menu-item {
+  height: 50px;
+  border-bottom: 2px solid black;
+  color: rgb(33, 44, 82);
+  padding: 13px 0 0 10px;
+}
+li.ui-menu-item:first-child {
+  display: none;
+}
+li.ui-menu-item:last-child {
+  border-bottom: none;
+}
+li.ui-menu-item:hover {
+  background-color: rgb(176, 250, 219);
+}
+
+#person-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#tournament-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s {
+  margin-top: 4px;
+  scale: 1.4;
+}
+
+#team1-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#team2-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#team3-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s,
+#team4-button > span.ui-selectmenu-icon.ui-icon.ui-icon-caret-1-s {
+  display: none;
+}
+
+#team1-button > span,
+#team2-button > span,
+#team3-button > span,
+#team4-button > span {
+  padding-top: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  font-size: 1em;
+}
+
+.radio-wrapper {
+  margin: 20px 0 15px -5px;
+  color: rgb(33, 44, 82);
+}
+.radio-wrapper label {
+  margin-left: -5px;
+}
+
+input[type=radio] {
+  background: #fff;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  margin: -3px 5px 0 15px;
+  text-align: center;
+}
+
+#cl-teams-home,
+#cl-teams-away,
+#le-teams-home,
+#le-teams-away {
+  height: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 0 5px 5px 0;
+  -webkit-box-shadow: 0 4px 8px rgb(33, 44, 82);
+          box-shadow: 0 4px 8px rgb(33, 44, 82);
+  width: 176px;
+  border-left: none;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  color: rgb(33, 44, 82);
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.ui-autocomplete .ui-menu-item:first-child {
+  display: block;
+}
+
+.ui-autocomplete .ui-menu-item {
+  border: 1px solid rgb(33, 44, 82);
+  width: 135px;
+  font-size: 14px;
+}
+.ui-autocomplete .ui-menu-item:last-child {
+  border-bottom: 1px solid rgb(33, 44, 82);
+}
+
+.ui-autocomplete {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px 1px;
+  text-align: center;
+}
+
+#cl-teams-home-label,
+#cl-teams-away-label,
+#le-teams-home-label,
+#le-teams-away-label {
+  position: absolute;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: rgb(33, 44, 82);
+}
+
+#cl-teams-home-icon,
+#cl-teams-away-icon,
+#le-teams-home-icon,
+#le-teams-away-icon {
+  float: left;
+  height: 50px;
+  width: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 5px;
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 5px 0 0 5px;
+  -webkit-box-shadow: 1px 4px 8px rgb(33, 44, 82);
+          box-shadow: 1px 4px 8px rgb(33, 44, 82);
+  border-right: none;
+  padding: 3px;
+}
+
+.bets-wrapper {
+  margin: 0 5px;
+  display: none;
+}
+
+#bet-types {
+  position: relative;
+  padding-bottom: 15px;
+}
+#bet-types .ui-accordion-header {
+  height: 45px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: rgb(143, 143, 143);
+  color: whitesmoke;
+  padding-top: 13px;
+  -webkit-box-shadow: 0 4px 7px black;
+          box-shadow: 0 4px 7px black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#bet-types .ui-accordion-header .ui-icon {
+  margin-right: 10px;
+  scale: 1.2;
+}
+#bet-types .ui-accordion-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#bet-types .ui-accordion-content #special-bets,
+#bet-types .ui-accordion-content #dry-win,
+#bet-types .ui-accordion-content #anyscore-more {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[1];
+  grid-template-columns: repeat(1, auto);
+  min-width: 300px;
+}
+#bet-types .ui-accordion-content #bothscore-result,
+#bet-types .ui-accordion-content #score-difference,
+#bet-types .ui-accordion-content #bothscore-half {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[2];
+  grid-template-columns: repeat(2, auto);
+}
+#bet-types .ui-accordion-content #bothscore-result button,
+#bet-types .ui-accordion-content #score-difference button,
+#bet-types .ui-accordion-content #bothscore-half button {
+  min-width: 150px;
+}
+#bet-types .ui-accordion-content #gameresult,
+#bet-types .ui-accordion-content #popular-bets,
+#bet-types .ui-accordion-content #homewin-goals-total-less,
+#bet-types .ui-accordion-content #homewin-goals-total-more,
+#bet-types .ui-accordion-content #awaywin-goals-total-less,
+#bet-types .ui-accordion-content #awaywin-goals-total-more,
+#bet-types .ui-accordion-content #firsthalf-game,
+#bet-types .ui-accordion-content #firsthalf-secondhalf,
+#bet-types .ui-accordion-content #bothscore-game,
+#bet-types .ui-accordion-content #bothscore-goals-amount,
+#bet-types .ui-accordion-content #half-result,
+#bet-types .ui-accordion-content #goals-half-result,
+#bet-types .ui-accordion-content #firsthalf-handicap,
+#bet-types .ui-accordion-content #secondhalf-handicap,
+#bet-types .ui-accordion-content #firsthalf-score-amount,
+#bet-types .ui-accordion-content #secondhalf-score-amount,
+#bet-types .ui-accordion-content #firsthalf-teamscore-amount,
+#bet-types .ui-accordion-content #secondhalf-teamscore-amount,
+#bet-types .ui-accordion-content #firsthalf-result-total-less,
+#bet-types .ui-accordion-content #firsthalf-result-total-more,
+#bet-types .ui-accordion-content #secondhalf-result-total-less,
+#bet-types .ui-accordion-content #secondhalf-result-total-more {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[3];
+  grid-template-columns: repeat(3, auto);
+}
+#bet-types .ui-accordion-content #gameresult button,
+#bet-types .ui-accordion-content #popular-bets button,
+#bet-types .ui-accordion-content #homewin-goals-total-less button,
+#bet-types .ui-accordion-content #homewin-goals-total-more button,
+#bet-types .ui-accordion-content #awaywin-goals-total-less button,
+#bet-types .ui-accordion-content #awaywin-goals-total-more button,
+#bet-types .ui-accordion-content #firsthalf-game button,
+#bet-types .ui-accordion-content #firsthalf-secondhalf button,
+#bet-types .ui-accordion-content #bothscore-game button,
+#bet-types .ui-accordion-content #bothscore-goals-amount button,
+#bet-types .ui-accordion-content #half-result button,
+#bet-types .ui-accordion-content #goals-half-result button,
+#bet-types .ui-accordion-content #firsthalf-handicap button,
+#bet-types .ui-accordion-content #secondhalf-handicap button,
+#bet-types .ui-accordion-content #firsthalf-score-amount button,
+#bet-types .ui-accordion-content #secondhalf-score-amount button,
+#bet-types .ui-accordion-content #firsthalf-teamscore-amount button,
+#bet-types .ui-accordion-content #secondhalf-teamscore-amount button,
+#bet-types .ui-accordion-content #firsthalf-result-total-less button,
+#bet-types .ui-accordion-content #firsthalf-result-total-more button,
+#bet-types .ui-accordion-content #secondhalf-result-total-less button,
+#bet-types .ui-accordion-content #secondhalf-result-total-more button {
+  min-width: 100px;
+}
+#bet-types .ui-accordion-content #half-moregoals {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[3];
+  grid-template-columns: repeat(3, auto);
+}
+#bet-types .ui-accordion-content #half-moregoals button {
+  min-width: 100px;
+  height: 70px;
+}
+#bet-types .ui-accordion-content #handicap,
+#bet-types .ui-accordion-content #firsthalf-result,
+#bet-types .ui-accordion-content #secondhalf-result,
+#bet-types .ui-accordion-content #draw-goals-amount,
+#bet-types .ui-accordion-content #gamescore-normal,
+#bet-types .ui-accordion-content #gamescore-unnormal,
+#bet-types .ui-accordion-content #goals-amount-home,
+#bet-types .ui-accordion-content #goals-amount-away {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[4];
+  grid-template-columns: repeat(4, auto);
+}
+#bet-types .ui-accordion-content #handicap button,
+#bet-types .ui-accordion-content #firsthalf-result button,
+#bet-types .ui-accordion-content #secondhalf-result button,
+#bet-types .ui-accordion-content #draw-goals-amount button,
+#bet-types .ui-accordion-content #gamescore-normal button,
+#bet-types .ui-accordion-content #gamescore-unnormal button,
+#bet-types .ui-accordion-content #goals-amount-home button,
+#bet-types .ui-accordion-content #goals-amount-away button {
+  min-width: 72px;
+}
+#bet-types .ui-accordion-content #goals-amount-game {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[5];
+  grid-template-columns: repeat(5, auto);
+}
+#bet-types .ui-accordion-content #goals-amount-game button {
+  min-width: 57px;
+}
+#bet-types button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: rgb(33, 44, 82);
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 5px;
+  height: 50px;
+  margin: 5px 3px;
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 7px black;
+          box-shadow: 0 4px 7px black;
+  font-size: 14px;
+}
+#bet-types button:active {
+  position: relative;
+  top: 4px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: rgb(181, 222, 135);
+}
+
+#gameresult-goals-amount .ui-accordion-header,
+#gamescore .ui-accordion-header,
+#half .ui-accordion-header,
+#win-style .ui-accordion-header,
+#goals .ui-accordion-header,
+#goals-amount .ui-accordion-header {
+  font-size: 14px;
+  background-color: rgb(59, 107, 163);
+}
+
+#gameresult-goals-amount-wrapper.inner-accordion-content,
+#gamescore-wrapper.inner-accordion-content,
+#half-wrapper.inner-accordion-content,
+#win-style-wrapper.inner-accordion-content,
+#goals-wrapper.inner-accordion-content,
+#goals-amount-wrapper.inner-accordion-content {
+  padding: 0;
+  margin: -1px;
+  display: block;
+}
+
+#selected-bet-field-wrapper {
+  display: none;
+  margin: 0 5px 15px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(33, 44, 82);
+}
+
+#selected-bet-wrapper {
+  margin: 5px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgb(235, 226, 226);
+  border-radius: 5px;
+}
+
+#selected-bet {
+  font-size: 14px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-width: 225px;
+  height: 50px;
+  padding: 0 10px;
+  color: black;
+}
+
+#selected-bet-cancel-btn {
+  height: 50px;
+  min-width: 50px;
+  background: url(../source/img/cancel_icon.png) no-repeat;
+  background-size: contain;
+}
+
+#bet-coefficient-field-wrapper {
+  display: none;
+}
+
+#bet-coefficient-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 15px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(33, 44, 82);
+}
+
+#bet-coefficient-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#bet-coefficient-wrapper input {
+  text-align: center;
+  width: 75px;
+  height: 50px;
+  margin-left: 10px;
+  border: 2px solid rgb(33, 44, 82);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 7px black;
+          box-shadow: 0 4px 7px black;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(33, 44, 82);
+}
+#bet-coefficient-wrapper input:focus {
+  border: 2px solid green;
+  -webkit-box-shadow: 0 8px 15px black;
+          box-shadow: 0 8px 15px black;
+}
+
+#submit-bet-button,
+#submit-blankbet-button,
+#submit-blankbet-button2 {
+  height: 80px;
+  background-color: rgb(33, 44, 82);
+  font-weight: bold;
+  color: whitesmoke;
+  font-size: 23px;
+  margin-left: 5px;
+  width: 225px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid whitesmoke;
+  -webkit-box-shadow: 0 4px 7px black;
+          box-shadow: 0 4px 7px black;
+}
+
+#submit-blankbet-button,
+#submit-blankbet-button2 {
+  background-color: rgb(112, 110, 110);
+  margin-top: 25px;
+}
+
+#submit-bet-button-wrapper,
+#submit-blankbet-button-wrapper {
+  display: none;
+}
+
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
+  border: 2px solid black;
+}
+
+.submit-message-titlebar {
+  background-color: rgb(31, 114, 23);
+  color: whitesmoke;
+}
+
+.error-message-titlebar {
+  background-color: rgb(128, 37, 37);
+  color: whitesmoke;
+}
+
+#submit-message {
+  line-height: 17px;
+}
+
+.ui-dialog-buttons > div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix > div > button {
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 1px solid rgb(33, 44, 82);
+}

@@ -1,0 +1,160 @@
+// подключаем шрифты
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Didact+Gothic&family=Exo+2:wght@400;700&family=Raleway:wght@400;700&family=Shantell+Sans:wght@400;700&family=Sofia+Sans+Semi+Condensed:wght@400;700&display=swap");
+
+body {
+  font-family: "Exo 2";
+  //   font-family: "Sofia Sans Semi Condensed";
+  //   font-family: "Didact Gothic";
+  //   font-family: "Raleway";
+  //   font-family: "Comfortaa";
+  //   font-family: "Shantell Sans";
+}
+
+// файл обнуляющих стилей
+@import "nullstyle.scss";
+
+// переменные
+$maincolor: rgb(33, 44, 82);
+$sidecolor: rgb(218, 218, 218);
+$extracolor: rgb(30, 25, 54);
+
+// шаблоны
+// для применения шаблона к селектору: @extend %имя_шаблона
+%normal_link_style {
+  font-size: 16px;
+  color: #113e9e;
+}
+
+// миксины
+// для применения миксины к селектору: @include volume_shadow(5px, 5px)
+@mixin volume_shadow($hs, $vs) {
+  box-shadow: $hs $vs 10px black;
+  border: 1px solid black;
+}
+
+html,
+body {
+  height: 100%;
+  @media (min-width: 767px) {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+#header-wrapper {
+  width: 100%;
+  background-color: #262626;
+}
+
+.nav-btn {
+  line-height: 60px;
+  padding: 0 0.6vw;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.nav-btn a {
+  color: whitesmoke;
+  font-size: 15px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#main-nav {
+  @media (min-width: 767px) {
+    width: 600px;
+    margin: 0 auto;
+  }
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: bold;
+  align-items: center;
+  margin: auto 0;
+  background-color: $maincolor;
+  z-index: 100;
+
+  & .logo-s {
+    width: 54px;
+    padding-top: 1px;
+    margin-left: -2px;
+  }
+}
+
+#dropdown-nav {
+  position: relative;
+}
+
+#dropdown-icon {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 4px;
+
+  & span {
+    position: absolute;
+    background-color: $sidecolor;
+    width: 30px;
+    height: 4px;
+    right: 5px;
+    transition: all 0.3s ease 0s;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    background-color: $sidecolor;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    right: 5px;
+    transition: all 0.3s ease 0s;
+  }
+
+  &::after {
+    top: 8px;
+  }
+  &::before {
+    top: -8px;
+  }
+}
+
+#dropdown-icon.active {
+  & span {
+    transform: scale(0);
+  }
+
+  &::after {
+    top: 0px;
+    transform: rotate(45deg);
+  }
+  &::before {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+#dropdown-nav-menu {
+  position: absolute;
+  top: 30px;
+  left: -165px;
+  background-color: $maincolor;
+  width: 200px;
+  text-align: center;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+body.lock {
+  overflow: hidden; // блок прокрутки при открытом бургере
+}
