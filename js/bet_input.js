@@ -1,35 +1,5 @@
 "use strict";
 
-// подключение удаленного сервера базы данных back4app.com
-var Parse = require("parse/node");
-//PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-Parse.initialize(
-  "WphVABC1bgkpyacqAEdcrQ4VUmEKJ4nKam1cwrQ4",
-  "MjY8nIJOKaKiW4zqIwPoKjWtQtCiylWJxN8SXKVK"
-);
-Parse.serverURL = "https://parseapi.back4app.com/";
-
-// создание и добавление объекта в базу данных
-async function saveNewPlayer() {
-  //Create your Parse Object
-  const soccerPlayer = new Parse.Object("SoccerPlayer");
-  //Define its attributes
-  soccerPlayer.set("playerName", "L. Messi");
-  soccerPlayer.set("yearOfBirth", 1997);
-  soccerPlayer.set("emailContact", "a.wed@email.io");
-  soccerPlayer.set("attributes", ["fast", "good conditioning"]);
-  try {
-    //Save the Object
-    const result = await soccerPlayer.save();
-    alert("New object created with objectId: " + result.id);
-  } catch (error) {
-    alert("Failed to create new object: " + error.message);
-  }
-}
-
-saveNewPlayer();
-saveNewPlayer();
-
 // TODO база данных! Отправка ставки
 // TODO ставки на доп.время, пенальти, проход дальше итд.
 // TODO добавить ручной ввод любой ставки
@@ -1007,6 +977,36 @@ $(function () {
     },
   });
 });
+
+//----------------------------------------------------------------
+// подключение удаленного сервера базы данных back4app.com
+var Parse = require("parse/node");
+//PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+Parse.initialize(
+  "WphVABC1bgkpyacqAEdcrQ4VUmEKJ4nKam1cwrQ4",
+  "MjY8nIJOKaKiW4zqIwPoKjWtQtCiylWJxN8SXKVK"
+);
+Parse.serverURL = "https://parseapi.back4app.com/";
+
+// создание и добавление объекта в базу данных
+async function saveNewPlayer() {
+  //Create your Parse Object
+  const soccerPlayer = new Parse.User("SoccerPlayer");
+  //Define its attributes
+  soccerPlayer.set("playerName", "L. Messi");
+  soccerPlayer.set("yearOfBirth", 1997);
+  soccerPlayer.set("emailContact", "a.wed@email.io");
+  soccerPlayer.set("attributes", ["fast", "good conditioning"]);
+  try {
+    //Save the Object
+    const result = await soccerPlayer.save();
+    alert("New object created with objectId: " + result.id);
+  } catch (error) {
+    alert("Failed to create new object: " + error.message);
+  }
+}
+
+saveNewPlayer();
 
 //
 //
