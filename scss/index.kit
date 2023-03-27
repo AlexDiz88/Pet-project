@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="stylesheet" href="css/homepage.css" />
-    <title>Prognoz</title>
-  </head>
-  <body>
-    <!-- @import "../menu.html" -->
-    <div class="content">
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, veniam
-        suscipit non porro a temporibus deserunt. Deserunt beatae repellendus
-        magnam culpa sapiente eligendi, explicabo dolor inventore vitae
-        recusandae dolores quas. Non, culpa nesciunt, ullam dolorem esse
-        suscipit natus nam dolor modi enim necessitatibus quibusdam saepe minus
-        doloremque eaque excepturi debitis cum porro ipsam, quasi id dolore
-        fugiat similique reiciendis. Debitis, culpa praesentium facilis ipsa
-        mollitia perferendis, non, accusamus quos minima modi nemo expedita
-        tempora dolorem dolores in soluta a perspiciatis explicabo harum est
-        doloremque nisi officiis veniam! Fugiat, cumque. Sit cupiditate, atque
-        dolore aliquam cum debitis maiores minima possimus fugit beatae placeat.
-        Ad, reiciendis rerum? Voluptates modi nemo eius ducimus, illo nobis
-        adipisci sint amet distinctio provident! Provident ut repellendus, est
-        impedit, suscipit quae aliquid, enim odio atque dolor quo saepe ducimus!
-        Doloribus, quasi? Soluta, voluptate tempore, dolorem magni iusto quis
-        fuga, labore sequi repudiandae eos fugit qui! Tempore a necessitatibus
-        tenetur ipsam reprehenderit deleniti hic sequi libero iste quam iusto,
-        facere accusamus totam quaerat exercitationem et minima molestias
-        mollitia accusantium repellat, perspiciatis cum, laboriosam nostrum.
-        Laudantium odio eveniet et iure, debitis iste quis. Quos nesciunt
-        libero, rerum dicta voluptatibus deserunt nam eius sequi sed fugiat sit,
-      </p>
-    </div>
-    <!-- @import "../scripts_list.html" -->
-    <script src="js/menu.js"></script>
-  </body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/menu.css" />
+	<link rel="stylesheet" href="css/homepage.css" />
+	<script defer type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+	<title>Prognoz</title>
+</head>
+
+<body>
+	<!-- @import "../menu.html" -->
+	<div class="content">
+		<p>
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur quasi sapiente tempore animi exercitationem placeat iste atque ratione, sit nihil, at illum incidunt obcaecati odit temporibus neque? Sint, ratione fugiat.
+		</p>
+		<p>
+			<button id="createButton">Create</button>
+		</p>
+	</div>
+	<!-- @import "../scripts_list.html" -->
+	<script src="js/menu.js"></script>
+	<script>
+		// Initialize Parse
+		Parse.initialize("WphVABC1bgkpyacqAEdcrQ4VUmEKJ4nKam1cwrQ4", "MjY8nIJOKaKiW4zqIwPoKjWtQtCiylWJxN8SXKVK"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+		Parse.serverURL = "https://parseapi.back4app.com/";
+
+		// Create a new User
+		async function createParseUser() {
+			// Creates a new Parse "User" object, which is created by default in your Parse app
+			let user = new Parse.User();
+			// Set the input values to the new "User" object
+			user.set("username", document.getElementById("username").value);
+			user.set("email", document.getElementById("email").value);
+			user.set("password", document.getElementById("password").value);
+			try {
+				// Call the save method, which returns the saved object if successful
+				user = await user.save();
+				if (user !== null) {
+					// Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
+					alert(
+						`New object created with success! ObjectId: ${user.id
+						}, ${user.get("username")}`
+					);
+				}
+			} catch (error) {
+				alert(`Error: ${error.message}`);
+			}
+		}
+
+		// Add on click listener to call the create parse user function
+		document.getElementById("createButton").addEventListener("click", async function () {
+			createParseUser();
+		});
+	</script>
+</body>
+
 </html>
